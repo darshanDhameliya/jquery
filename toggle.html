@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Toggle Loading</title>
+</head>
+
+<body>
+    <center>
+        <input type="button" id="btnToggleLoading" name="Toggle Loading" value="Off"><br>
+        <img id="imgLoader" src="loader.gif" height="100px" width="100px" />
+    </center>
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        $('document').ready(function() {
+            $('#btnToggleLoading').click(function() {
+                setToggleButtonValue('#btnToggleLoading ');
+                $("#imgLoader").toggle();
+            });
+        });
+
+        function setToggleButtonValue(id) {
+            $(id).val() == 'On' ? $(id).val('Off') : $(id).val('On');
+        }
+    </script>
+</body>
+
+</html>

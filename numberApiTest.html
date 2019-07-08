@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center">
+        <input type="number" id="nbNumber" name="Number">
+        <input type="button" id="btnFetch" value="Fetch">
+    </div>
+    <div id="displayNumberData" align="center"></div>
+
+    <script src="jquery-3.4.1.js "></script>
+    <script>
+        $("#btnFetch ").click(function() {
+            var number = $('#nbNumber').val();
+            if (number.length) {
+                $.ajax({
+                    url: "http://numbersapi.com/" + number,
+                    success: function(result) {
+                        // console.log(result);
+                        displayResult(result, getColor(number));
+                    }
+                });
+            }
+            // console.log("end of click");
+        });
+
+        function displayResult(result, color) {
+            $('<p>', {
+                text: result
+            }).appendTo($("#displayNumberData")).css({
+                'color': color
+            });
+        }
+
+        function getColor(number) {
+            if (checkEvenNumber(number))
+                return "green";
+            return "red";
+        }
+
+        function checkEvenNumber(number) {
+            if (number % 2 == 0)
+                return true;
+            return false;
+        }
+    </script>
+</body>
+
+</html

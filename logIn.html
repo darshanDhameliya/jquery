@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log In</title>
+</head>
+
+<body>
+    <center>
+        <form action="myPhp.php" method="POST">
+            <Table>
+                <tr>
+                    <td>User Name</td>
+                    <td><input type="text" id="txtUserName" name="User Name"></td>
+                </tr>
+                <tr>
+                    <td> Password </td>
+                    <td><input type="password" id="txtPassword" name="Password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align=" center"> <input type="submit" value="Log In" id="btnLogIn"></td>
+                </tr>
+            </Table>
+        </form>
+    </center>
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        $('document').ready(function() {
+            $('#btnLogIn').click(function() {
+                if (checkAndNotifyEmptyField($('#txtUserName').val(), "User Name"))
+                    return false;
+                if (checkAndNotifyEmptyField($('#txtPassword').val(), "Password"))
+                    return false;
+            });
+        });
+
+        function checkAndNotifyEmptyField(value, fieldName) {
+            if (value != "" && value != null)
+                return false;
+            alert("enter " + fieldName);
+            return true;
+        }
+    </script>
+</body>
+
+</html>
