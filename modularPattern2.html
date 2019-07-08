@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var MathService = (function() {
+            var MathService = {};
+            MathService.cube = function(number) {
+                return number * number * number;
+            };
+            MathService.isEven = function(number) {
+                if (number % 2 == 0)
+                    return true;
+                return false;
+            };
+            MathService.cubeEven = function(number) {
+                if (this.isEven(this.cube(number)))
+                    return "cube is even";
+                throw "invalid number Exception";
+            };
+            return MathService;
+        })();
+        console.log(MathService.cube(3));
+        console.log(MathService.isEven(3));
+        console.log(MathService.cubeEven(2));
+    </script>
+</body>
+
+</html>

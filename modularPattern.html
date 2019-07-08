@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function makeCustomer() {
+            var customer = {};
+            var _firstName;
+
+            console.log(customer.__proto__ == Object.prototype);
+
+            customer.setFirstName = function(firstName) {
+                if (firstName.length > 0)
+                    _firstName = firstName;
+            }
+            customer.getFirstName = function() {
+                return _firstName.toUpperCase();
+            }
+            return customer;
+        }
+        var c1 = makeCustomer();
+        c1.setFirstName("Darshan");
+        console.log(c1.getFirstName());
+
+        console.log(c1);
+
+        var c2 = makeCustomer();
+        c2.setFirstName("Vivek");
+        console.log(c2);
+    </script>
+</body>
+
+</html>

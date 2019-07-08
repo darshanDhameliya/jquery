@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Customer(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+        Customer.prototype.getFullName = function() {
+            return this.firstName + " " + this.lastName;
+        }
+
+        var c1 = new Customer("darshan", "dhameliya");
+        console.log(c1);
+
+        var c2 = new Customer("vivek", "jivani");
+        console.log(c2);
+
+        console.log(c1.__proto__ == c2.__proto__);
+        console.log(c1.__proto__ == Customer.prototype);
+        console.log(c1.__proto__);
+    </script>
+</body>
+
+</html>
