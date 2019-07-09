@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function cubrEven1(number) {
+            if (number % 2 == 0)
+                return number * number * number;
+            else
+                throw "not even exception";
+        };
+
+        // synchronize
+        //         function cubrEven2(number, fn) {
+        //             if (number % 2 == 0)
+        //                 fn({
+        //                     return: number * number * number
+        //                 })
+        //             else
+        //                 fn({
+        //                     error: 'not even'
+        //                 })
+        //         };
+
+        // asynchronize
+        function cubrEven2(number, fn) {
+            setTimeout(function() {
+                if (number % 2 == 0)
+                    fn({
+                        return: number * number * number
+                    })
+                else
+                    fn({
+                        error: 'not even'
+                    })
+            }, 0);
+
+        };
+
+        var result = cubrEven1(20);
+        console.log(result);
+
+        cubrEven2(6, function(result) {
+            console.log(result);
+        });
+
+        console.log("End Program");
+    </script>
+</body>
+
+</html>

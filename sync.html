@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center">
+        <input type="button" id="btnStartWorker" value="StartWorker">
+        <input type="button" id="btnStopWorker" value="StopWorker">
+        <input type="button" id="btnAlert" value="Alert">
+    </div>
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        var worker;
+        $('document').ready(function() {
+            $('#btnStartWorker').click(async function() {
+                startworker();
+            });
+            $('#btnStopWorker').click(function() {
+                console.log("stop worker");
+                stopWorker();
+            });
+            $('#btnAlert').click(function() {
+                alert("Hello");
+            });
+            console.log("end program");
+        });
+
+        function startworker() {
+            if (typeof(Worker) !== "undefined") {
+                if (typeof(worker) == "undefined")
+                    worker = new Worker("infinityDisplay.js");
+                worker.onmessage = function(event) {
+                    console.log(event.data);
+                };
+            } else {
+                alert("Sorry! No Web Worker support.");
+            }
+        }
+
+        function stopWorker() {
+            worker.terminate();
+            worker = undefined;
+        }
+    </script>
+</body>
+
+</html>
